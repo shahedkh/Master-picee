@@ -14,15 +14,16 @@
                             <th scope="col">Name<span style="color: red">*</span></th>
                             <th scope="col">Category<span style="color: red">*</span></th>
                             <th scope="col">Description<span style="color: red">*</span></th>
-                            <th scope="col">Price<span style="color: red">*</span></th>
                             <th scope="col">Image url<span style="color: red">*</span></th>
-                            <th scope="col">Stock<span style="color: red">*</span></th>
-                            <th scope="col">Discount(out of 100%)<span style="color: red">*</span></th>
+                            <th scope="col">Image url 2<span style="color: red">*</span></th>
+                            <th scope="col">Trailer url<span style="color: red">*</span></th>
+                            <th scope="col">Day<span style="color: red">*</span></th>
+                            <th scope="col">Time<span style="color: red">*</span></th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <form action="{{ route('admin.products.store') }}" method="POST">
+                        <form action="{{ route('admin.movies.store') }}" method="POST">
                             @csrf
                             @method('post')
                             <tr>
@@ -34,6 +35,7 @@
                                 </td>
                                 <td>
                                     <select name="category_id" class="form-select" aria-label="Default select example">
+
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
@@ -51,31 +53,31 @@
                                     @enderror
                                 </td>
                                 <td>
-                                    <input type="number" step="0.01" name="price" class="form-control" min="1" required>
-                                    @error('price')
-                                        <span class="badge" style="color: red">{{ $message }}</span>
-                                    @enderror
-                                </td>
-                                <td>
                                     <textarea name="image_url" class="form-control" rows="3" required></textarea>
                                     @error('image_url')
                                         <span class="badge" style="color: red">{{ $message }}</span>
                                     @enderror
                                 </td>
                                 <td>
-                                    <input type="number" name="stock" min="0" class="form-control" required>
+                                    <textarea name="image_url2" class="form-control" rows="3" required></textarea>
                                     @error('stock')
                                         <span class="badge" style="color: red">{{ $message }}</span>
                                     @enderror
                                 </td>
                                 <td>
-                                    <input type="number" name="discount" class="form-control" required>
+                                    <textarea name="trailer_url" class="form-control" rows="3" required></textarea>
                                     @error('discount')
                                         <span class="badge" style="color: red">{{ $message }}</span>
                                     @enderror
                                 </td>
                                 <td>
-                                    <input type="submit" class="btn btn-primary" value="Add Category">
+                                    <input type="date" name="day" id="">
+                                </td>
+                                <td>
+                                    <input type="time" name="time" id="">
+                                </td>
+                                <td>
+                                    <input type="submit" class="btn btn-success" value="Add Movie">
                                 </td>
                             </tr>
                         </form>

@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('image_url');
             $table->string('day');
             $table->string('time');
+            $table->string('image_url2');
+            $table->string('trailer_url');
             $table->timestamps();
         });
     }

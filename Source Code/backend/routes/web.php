@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\RoomController;
+use App\Http\Controllers\MovieController;
 // use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;

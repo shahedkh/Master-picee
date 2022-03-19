@@ -82,10 +82,10 @@
 
 
                         <div class="dropdown-menu bg-transparent border-0">
-                            {{-- <a href="{{ route('admin.products.index') }}" class="nav-item nav-link">Show
-                                Products</a>
-                            <a href="{{ route('admin.products.create') }}" class="nav-item nav-link">Add
-                                Product</a> --}}
+                            <a href="{{ route('admin.movies.index') }}" class="nav-item nav-link">Show
+                                movies</a>
+                            <a href="{{ route('admin.movies.create') }}" class="nav-item nav-link">Add
+                                movie</a>
                         </div>
                     </div>
                     {{-- <div class="nav-item dropdown">
@@ -133,7 +133,7 @@
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 

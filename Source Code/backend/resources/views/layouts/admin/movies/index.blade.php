@@ -22,36 +22,34 @@
                             <th scope="col">Name</th>
                             <th scope="col">Category</th>
                             <th scope="col">Description</th>
-                            <th scope="col">Price</th>
                             <th scope="col">Image url</th>
-                            <th scope="col">Stock</th>
-                            <th scope="col">Discount</th>
+                            <th scope="col">Image url 2</th>
+                            <th scope="col">Trailer utl</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php
                             $i = 0;
                         @endphp
-                        @foreach ($products as $product)
+                        @foreach ($movies as $movie)
                             <tr>
                                 {{-- {{ dd($product->category) }} --}}
                                 <td>{{ ++$i }}</td>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->category->name }}</td>
-                                <td>{{ $product->description }}</td>
-                                <td>{{ $product->price }}</td>
-                                <td>{{ $product->image_url }}</td>
-                                <td>{{ $product->stock }}</td>
-                                <td>{{ $product->discount }}</td>
+                                <td>{{ $movie->name }}</td>
+                                <td>{{ $movie->category->name }}</td>
+                                <td>{{ $movie->description }}</td>
+                                <td>{{ $movie->image_url }}</td>
+                                <td>{{ $movie->image_url2 }}</td>
+                                <td>{{ $movie->trailer_url }}</td>
                                 <td>
-                                    <form action="{{ route('admin.products.edit', $product) }}" method="post">
+                                    <form action="{{ route('admin.movies.edit', $movie) }}" method="post">
                                         @csrf
                                         @method('get')
                                         <input type="submit" class="btn btn-success" value="Edit">
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="post"
+                                    <form action="{{ route('admin.movies.destroy', $movie->id) }}" method="post"
                                         onsubmit="return confirm('are you sure ?')">
                                         @csrf
                                         @method('delete')
