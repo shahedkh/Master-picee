@@ -20,7 +20,9 @@
   font-size: 1.1em;
   border-left: white solid 1px;
 }
-
+.navbar-items li:hover {
+  color: #ff0000;
+}
 .navbar-logo h2 {
   margin-top: 0.3em;
 }
