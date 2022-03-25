@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Movie;
-use App\Models\Reservation;
-use App\Models\User;
+use App\Models\Seat;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class SeatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,12 +15,6 @@ class IndexController extends Controller
     public function index()
     {
         //
-
-        // return view('layouts.admin.index', compact('allUsers', 'allCategories', 'allProducts', 'allOrders', 'orders'));
-        $reservations = Reservation::all();
-        $movies = Movie::all();
-        $categories = Category::all();
-        return view('layouts.admin.index', compact('reservations', 'movies', 'categories' ));
     }
 
     /**
@@ -51,10 +41,10 @@ class IndexController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Seat  $seat
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Seat $seat)
     {
         //
     }
@@ -62,10 +52,10 @@ class IndexController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Seat  $seat
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Seat $seat)
     {
         //
     }
@@ -74,10 +64,10 @@ class IndexController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Seat  $seat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Seat $seat)
     {
         //
     }
@@ -85,10 +75,10 @@ class IndexController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Seat  $seat
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Seat $seat)
     {
         //
     }

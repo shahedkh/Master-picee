@@ -12,7 +12,7 @@ const Hero = () => {
   
     const fetchData = async () => {
       const res = await axios.get('http://127.0.0.1:8000/api/movies')
-      const data = res.data
+      const data = res.data[0]
       console.log(res.data);
       setMovies(data)
     }
@@ -36,4 +36,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default Hero;

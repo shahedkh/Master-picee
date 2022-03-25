@@ -25,6 +25,8 @@
                             <th scope="col">Image url</th>
                             <th scope="col">Image url 2</th>
                             <th scope="col">Trailer utl</th>
+                            <th scope="col">Day</th>
+                            <th scope="col">Time</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,6 +43,8 @@
                                 <td>{{ $movie->image_url }}</td>
                                 <td>{{ $movie->image_url2 }}</td>
                                 <td>{{ $movie->trailer_url }}</td>
+                                <td>{{ $movie->day }}</td>
+                                <td>{{ $movie->time }}</td>
                                 <td>
                                     <form action="{{ route('admin.movies.edit', $movie) }}" method="post">
                                         @csrf

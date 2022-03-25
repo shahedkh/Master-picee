@@ -5,6 +5,8 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\Seat;
+use App\Models\Category;
 
 
 class MovieController extends Controller
@@ -19,7 +21,10 @@ class MovieController extends Controller
         //
         // return true;
         $movies = Movie::all();
-        return $movies;
+        $categories = Category::all();
+        $seats = Seat::all();
+
+        return [$movies, $categories, $seats];
     }
 
     /**
@@ -49,10 +54,16 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
         //
-    }
+        public function show($id)
+        {
+            $movie = Movie::find($id);
+            $categories = Category::all();
+            $seats = Seat::all();
+            // return view('layouts.admin.movie', compact('movie', 'categories'));
+            return [$movie, $categories, $seats];
+            // return $movie;
+        }
 
     /**
      * Show the form for editing the specified resource.

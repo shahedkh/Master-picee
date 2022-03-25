@@ -5,28 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reservation extends Model
+class Seat extends Model
 {
-    public function user(){
-       return $this->belongsTo(User::class);
-    }
-
     public function movie(){
         return $this->belongsTo(Movie::class);
     }
-
-    public function seat(){
-        return $this->belongsTo(Seat::class);
-    }
-
-
-    use HasFactory;
-
     protected $fillable = [
-        'user_id',
         'movie_id',
-        'day',
-        'time',
+        'reserved',
         'seat_number'
     ];
+    use HasFactory;
 }

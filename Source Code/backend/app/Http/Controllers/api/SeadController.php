@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Movie;
-use App\Models\Reservation;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class SeadController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,12 +15,6 @@ class IndexController extends Controller
     public function index()
     {
         //
-
-        // return view('layouts.admin.index', compact('allUsers', 'allCategories', 'allProducts', 'allOrders', 'orders'));
-        $reservations = Reservation::all();
-        $movies = Movie::all();
-        $categories = Category::all();
-        return view('layouts.admin.index', compact('reservations', 'movies', 'categories' ));
     }
 
     /**

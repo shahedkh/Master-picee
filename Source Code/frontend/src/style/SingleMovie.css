@@ -1,0 +1,53 @@
+.single-long {
+  height: 60vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.singleMovie {
+  display: flex;
+  margin: auto;
+  width: 85%;
+  margin-top: 4em;
+}
+.single-left {
+  width: 30%;
+}
+.single-right {
+  width: 70%;
+}
+.single-image {
+  width: 80%;
+  height: 55vh;
+}
+.single-title {
+  color: white;
+  font-size: 2em;
+}
+.single-p {
+  display: flex;
+  color: rgb(182, 179, 179);
+  font-size: 1.1em;
+  margin: 0.5em 0;
+}
+.single-paragraph {
+  width: 80%;
+  color: white;
+  font-size: 1.1em;
+  margin: 1em 0;
+}
+.single-btn {
+  font-size: 1.1em;
+  padding: 0.7em;
+  border: none;
+  margin: 2em 1.5em 0 0;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 3px;
+}
+.single-p p {
+  padding-right: 2em;
+}
+.single-btn:hover {
+  background-color: #d80606;
+}

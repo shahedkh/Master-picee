@@ -72,9 +72,11 @@ class MovieController extends Controller
      * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function show(Movie $movie)
+    public function show($id)
     {
-        //
+        // $movie = Movie::find($id);
+        // $categories = Category::all();
+        // return view('layouts.admin.movie', compact('movie', 'categories'));
     }
 
     /**
@@ -110,7 +112,8 @@ class MovieController extends Controller
             "image_url" => $request->image_url,
             "image_url2" => $request->image_url2,
             "trailer_url" => $request->trailer_url,
-
+            "day"=> $request->day,
+            "time"=> $request->time
         ]);
 
         return redirect()->back()->with(['message' => 'Movie updated successfully']);

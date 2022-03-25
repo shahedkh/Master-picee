@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="{{-- route('admin.index') --}}" class="nav-item nav-link active"><i
+                    <a href="{{ route('admin.index') }}" class="nav-item nav-link active"><i
                             class="fas fa-calendar-check me-2"></i>Reservations</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
@@ -133,7 +133,7 @@
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 

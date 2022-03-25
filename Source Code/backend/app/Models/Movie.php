@@ -10,6 +10,12 @@ class Movie extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+    public function reservation(){
+        return $this->belongsTo(Reservation::class);
+    }
+    public function seat(){
+        return $this->belongsTo(Seat::class);
+    }
     protected $fillable = [
         'category_id',
         'name',

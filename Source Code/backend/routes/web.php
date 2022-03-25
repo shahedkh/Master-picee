@@ -31,7 +31,15 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['IsAdmin'])->group(function () {
+    // Route::get('/admin/dashboard', [IndexController::class, 'index'])->name('admin.index');
+
     Route::get('/admin/dashboard', [IndexController::class, 'index'])->name('admin.index');
+    Route::get('/admin/dashboard/add', [IndexController::class, 'create'])->name('admin.create');
+    Route::post('/admin/dashboard/add', [IndexController::class, 'store'])->name('admin.store');
+    Route::get('/admin/dashboard/edit/{id}', [IndexController::class, 'edit'])->name('admin.edit');
+    Route::put('/admin/dashboard/edit/{id}', [IndexController::class, 'update'])->name('admin.update');
+    Route::delete('/admin/dashboard/{id}', [IndexController::class, 'destroy'])->name('admin.destroy');
+
 
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users');
     Route::get('/admin/users/add', [UserController::class, 'create'])->name('admin.users.add');
@@ -54,10 +62,4 @@ Route::middleware(['IsAdmin'])->group(function () {
     Route::put('/admin/movies/edit/{id}', [MovieController::class, 'update'])->name('admin.movies.update');
     Route::delete('/admin/movies/{id}', [MovieController::class, 'destroy'])->name('admin.movies.destroy');
 
-    Route::get('/admin/reservations', [ReservationController::class, 'index'])->name('admin.reservations.index');
-    Route::get('/admin/reservations/add', [ReservationController::class, 'create'])->name('admin.reservations.create');
-    Route::post('/admin/reservations/add', [ReservationController::class, 'store'])->name('admin.reservations.store');
-    Route::get('/admin/reservations/edit/{id}', [ReservationController::class, 'edit'])->name('admin.reservations.edit');
-    Route::put('/admin/reservations/edit/{id}', [ReservationController::class, 'update'])->name('admin.reservations.update');
-    Route::delete('/admin/reservations/{id}', [ReservationController::class, 'destroy'])->name('admin.reservations.destroy');
 });

@@ -17,6 +17,8 @@
                             <th scope="col">Image url<span style="color: red">*</span></th>
                             <th scope="col">Image url 2<span style="color: red">*</span></th>
                             <th scope="col">Trailer url<span style="color: red">*</span></th>
+                            <th scope="col">Day<span style="color: red">*</span></th>
+                            <th scope="col">Time<span style="color: red">*</span></th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -71,7 +73,21 @@
                                 </td>
                                 <td>
                                     <textarea name="trailer_url" class="form-control" rows="3" required>{{ $movie->trailer_url }}</textarea>
-                                    @error('discount')
+                                    @error('trailer_url')
+                                        <span class="badge" style="color: red">{{ $message }}</span>
+                                    @enderror
+                                </td>
+                                <td>
+                                    {{-- <textarea name="day" class="form-control" rows="3" required>{{ $movie->trailer_url }}</textarea> --}}
+                                    <input type="date" name="day" id="day" value="{{ $movie->day }}">
+                                    @error('day')
+                                        <span class="badge" style="color: red">{{ $message }}</span>
+                                    @enderror
+                                </td>
+                                <td>
+                                    {{-- <textarea name="time" class="form-control" rows="3" required>{{ $movie->trailer_url }}</textarea> --}}
+                                    <input type="time" name="time" id="time" value="{{ $movie->time }}">
+                                    @error('time')
                                         <span class="badge" style="color: red">{{ $message }}</span>
                                     @enderror
                                 </td>
