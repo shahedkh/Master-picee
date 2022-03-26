@@ -12,15 +12,21 @@
 .navbar-items {
   display: flex;
   flex-direction: row;
-  text-decoration: none;
+
   list-style: none;
 }
 .navbar-items li {
   padding: 0.5em 0.6em;
-  font-size: 1em;
+
   border-left: white solid 1px;
 }
-.navbar-items li:hover {
+.navbar-items .link {
+  color: white;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.navbar-items .link:hover {
   color: #ff0000;
 }
 .navbar-logo h2 {

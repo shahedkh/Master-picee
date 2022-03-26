@@ -1,9 +1,12 @@
 import "../style/navbar.css"
-import React, { useState } from "react";
+import React, { useState, useContext  } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../App";
 
 
-function Navbar() {
+function Navbar({logged}) {
   const [toggleNav, setToggleNav] = useState(false);
+  const { setLogged} = useContext(UserContext);
   let obj = toggleNav
   ? { display: "flex"}
   : {};
@@ -14,13 +17,15 @@ function Navbar() {
       <div className='navbar-items'>
         <ul>
         <div className='navbar-items'>
-        <li><a>HOME</a></li>
-        <li><a>SHOWS</a></li>
-        <li><a>CONTACT US</a></li>
+        <li><Link to="/" className="link">HOME</Link></li>
+        <li><Link to="/show" className="link">SHOWS</Link></li>
+        <li><Link to="contact" className="link">CONTACT US</Link></li>
           </div>
         </ul>
       </div>
-      <div className='navbar-acc'><button className='nav-btn'>Login</button> </div>
+      {!logged ? (<div className='navbar-acc'><Link to="/login"><button className='nav-btn'>Login</button></Link> </div>):(<div className='navbar-acc'><button className='nav-btn' onClick={()=>setLogged(false)}>LogOut</button></div>)
+      }
+     
      
     </div> 
     {!toggleNav && <img className='nav-menu' src="menu.png" alt="menu" onClick={()=> setToggleNav(true)}/>}

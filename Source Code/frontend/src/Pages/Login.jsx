@@ -1,9 +1,12 @@
 import "../style/register.css";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState , useContext } from "react";
+import { Link,useNavigate } from "react-router-dom";
 import axios from 'axios'
+import { UserContext } from "../App";
 
 const Register = () => {
+  let navigate = useNavigate();
+  const { setLogged} = useContext(UserContext);
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -14,13 +17,13 @@ const Register = () => {
       try{
         const res = await axios.post('http://127.0.0.1:8000/api/users',loginData)
         localStorage.setItem("isLogin", true)
+        setLogged(true)
+        navigate('/')
+
       }catch{
         localStorage.setItem("isLogin", false)
       }
       
-
-        
-
 
   }
   const handleChange = (e) => {
@@ -60,7 +63,7 @@ const Register = () => {
           <button className="register-btn" type="submit">Login</button>
         </form>
         <p className="register-already">
-        Don't have an account? <a to="/">Sign up</a>
+        Don't have an account? <Link to="/register">Sign up</Link>
         </p>
       </div>
       <a href="http://127.0.0.1:8000/login" className="register-already">Login as admin</a>

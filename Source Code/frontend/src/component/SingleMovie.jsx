@@ -1,31 +1,42 @@
 import "../style/SingleMovie.css";
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import axios from 'axios'
 
 const SingleMovie = () => {
+  const [movie, setMovie] = useState();
+  let { id } = useParams();
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+  const fetchData = async () => {
+    axios.get(`http://127.0.0.1:8000/api/movies/${id}`).then((res)=>{
+      console.log(res);
+      setMovie(res.data[0])
+    }  
+    )
+
+  }
   return (
     <div>
-      <img src="long2.jpg" className="single-long" />
+      <img src={movie?.image_url2} className="single-long" />
       <div className="singleMovie">
         <div className="single-left">
-          <img src="lala.webp" alt="Avatar" class="single-image" />
+          <img src={movie?.image_url} alt="Avatar" class="single-image" />
          </div>
          <div className="single-right">
-          <h2 className="single-title">La la land</h2>
+          <h2 className="single-title">{movie?.name}</h2>
           <div className="single-p">
-            <p>Sunday</p>
-            <p>20:00</p>
-            <p>Romance</p>
+            <p>{movie?.day}</p>
+            <p>{movie?.time}</p>
           </div>
           <div className="single-paragraph">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500 Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500 Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500
+           {movie?.description}
           </div>
           <div className="single-button">
-            <button className="single-btn">Trailer</button>
+           <a href={movie?.trailer_url} target="_blank"> <button className="single-btn">Trailer</button></a> 
             <button className="single-btn">Booking Now</button>
           </div>
          </div>

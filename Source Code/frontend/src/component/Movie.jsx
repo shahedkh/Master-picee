@@ -1,16 +1,24 @@
 import "../style/movie.css";
-const Movie = () => {
+import { useNavigate } from "react-router-dom";
+
+const Movie = ({movie}) => {
+  let navigate = useNavigate();
+
+  const openMovie = (id) =>{
+    console.log(id );
+    navigate(`/show/${id}`)
+  }
   return (
     <div className='movie'>
     <div className='movie-left'>
-    <img className="movie-image" src="lala.webp" alt="Avatar" class="image" />
+    <img className="movie-image" src={movie.image_url} alt="Avatar" class="image" />
     </div>
 
 
     <div className='movie-right'>
-    <h3 className='movie-title'>La La land</h3>
-    <p className='movie-paragraph'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500</p>
-    <button className='movie-btn'>Booking Now</button>
+    <h3 className='movie-title'>{movie.name}</h3>
+    <p className='movie-paragraph'>{movie?.description}</p>
+    <button className='movie-btn' onClick={()=>openMovie(movie.id)} >Booking Now</button>
     </div>
 
     </div>

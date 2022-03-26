@@ -14,14 +14,16 @@ const BestMovies = () => {
     }, [])
   
     const fetchData = async () => {
-      const res = await axios.get('http://127.0.0.1:8000/api/movies')
-      const data = res.data[0]
-      console.log(res.data);
-      setMovies(data)
+      axios.get('http://127.0.0.1:8000/api/movies').then((res)=>{
+        setMovies(res.data[0])
+        handleFilter(2)
+      }  
+      )
+
     }
 
     const handleFilter=(type)=>{
-      setFilteredMovies(movies.filter(movie=>
+      setFilteredMovies(movies?.filter(movie=>
         movie.category_id==type
       ))
     }

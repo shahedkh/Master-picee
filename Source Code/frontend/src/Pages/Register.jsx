@@ -1,9 +1,12 @@
 import "../style/register.css";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState ,useContext } from "react";
+import { Link,useNavigate } from "react-router-dom";
 import axios from 'axios'
+import { UserContext } from "../App";
 
 const Register = () => {
+  let navigate = useNavigate();
+  const { setLogged} = useContext(UserContext);
   const [registerData, setRegisterData] = useState({
     name: "",
     email: "",
@@ -17,6 +20,8 @@ const Register = () => {
       try{
          const res = await axios.post('http://127.0.0.1:8000/api/users/register',registerData)
          localStorage.setItem("isLogin", true)
+         setLogged(true)
+         navigate('/')
         }catch{
           localStorage.setItem("isLogin", false)
         }
@@ -86,7 +91,7 @@ const Register = () => {
           <button className="register-btn" type="submit">Register</button>
         </form>
         <p className="register-already">
-          Already have an account? <a to="/">Login</a>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>
