@@ -47,11 +47,6 @@
 .hero-btn2:hover {
   background-color: #272829;
 }
-@media screen and (max-width: 1024px) {
-  .hero-box {
-    padding: 4em 0 0 4em;
-  }
-}
 @media screen and (max-width: 768px) {
   .hero-box {
     padding: 4em 0 0 1em;

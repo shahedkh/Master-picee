@@ -10,20 +10,16 @@ const BestMovies = () => {
 
     useEffect(() => {
       fetchData();
-      handleDramaClick()
     }, [])
   
     const fetchData = async () => {
-      axios.get('http://127.0.0.1:8000/api/movies').then((res)=>{
+      let res = await axios.get('http://127.0.0.1:8000/api/movies')
         setMovies(res.data[0])
-        handleFilter(2)
-      }  
-      )
-
+        handleDramaClick()
     }
 
     const handleFilter=(type)=>{
-      setFilteredMovies(movies?.filter(movie=>
+      setFilteredMovies(movies.filter(movie=>
         movie.category_id==type
       ))
     }
@@ -63,7 +59,7 @@ const BestMovies = () => {
            
         </div>
 
-        {movies &&<div className="cards">
+        {filteredMovies &&<div className="cards">
           {filteredMovies?.map((movie)=><Card movie={movie}/>)}
         </div>}
   

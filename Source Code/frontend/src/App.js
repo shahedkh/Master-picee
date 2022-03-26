@@ -9,6 +9,7 @@ import LandingPage from "./Pages/LandingPage";
 import Show from "./Pages/Show";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import CheckOut from "./Pages/CheckOut";
 export const UserContext = createContext();
 
 function App() {
@@ -29,10 +30,11 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/show" element={<Show />}/>
-         <Route path="show/:id" element={<SingleMovie />} />
+          <Route path="show/:id" element={<SingleMovie />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/checkout" element={<CheckOut />} />
         </Routes>
         <Footer />
         </UserContext.Provider>

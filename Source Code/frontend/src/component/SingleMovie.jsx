@@ -1,11 +1,14 @@
 import "../style/SingleMovie.css";
-import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect,useContext  } from "react";
+import { useParams ,useNavigate} from 'react-router-dom';
 import axios from 'axios'
+import { UserContext } from "../App";
 
 const SingleMovie = () => {
   const [movie, setMovie] = useState();
+  const { logged} = useContext(UserContext);
   let { id } = useParams();
+  let navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
@@ -17,7 +20,13 @@ const SingleMovie = () => {
       setMovie(res.data[0])
     }  
     )
-
+  }
+  const handleBooking = ()=>{
+    if(logged){
+      navigate("/checkout")
+    }else{
+      navigate("/login")
+    }
   }
   return (
     <div>
@@ -37,7 +46,7 @@ const SingleMovie = () => {
           </div>
           <div className="single-button">
            <a href={movie?.trailer_url} target="_blank"> <button className="single-btn">Trailer</button></a> 
-            <button className="single-btn">Booking Now</button>
+            <button className="single-btn" onClick={()=>handleBooking()}>Booking Now</button>
           </div>
          </div>
       </div>

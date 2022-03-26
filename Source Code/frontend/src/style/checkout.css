@@ -1,0 +1,41 @@
+.checkout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.chick-title {
+  color: white;
+  padding: 0 0 1.3em;
+  font-size: 2em;
+}
+.checkout-form {
+  width: 70%;
+}
+.checkOut-input {
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+}
+.checkOut-input > input {
+  display: flex;
+  border-radius: 2px;
+  border: 1px solid rgba(128, 128, 128, 0.623);
+  resize: none;
+  background-color: #272829;
+  height: 6vh;
+  color: white;
+  width: 100%;
+  margin: 0 0 2em 0;
+}
+.check-btn {
+  background-color: #ff0000;
+  padding: 15px 15px;
+  border-radius: 3px;
+  border: none;
+  font-size: 1em;
+  color: white;
+  width: 100%;
+}

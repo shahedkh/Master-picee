@@ -31,4 +31,16 @@
 .cards {
   display: flex;
   justify-content: center;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .bestMovies {
+    height: 270vh;
+    padding-right: 80px;
+  }
 }

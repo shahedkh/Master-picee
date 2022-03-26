@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import "../style/hero.css"
+import { Link } from "react-router-dom";
 
 
 const Hero = () => {
@@ -27,7 +28,7 @@ const Hero = () => {
         <p className="hero-paragraph">
         {movies[0]?.description}
       </p>
-      <button className="hero-btn2">Show More</button>
+      <Link to="/show"><button className="hero-btn2">Show More</button></Link>
         </div>
         </div>
 

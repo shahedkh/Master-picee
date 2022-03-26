@@ -3,6 +3,7 @@ import React, { useState , useContext } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { UserContext } from "../App";
+import Swal from 'sweetalert2'
 
 const Register = () => {
   let navigate = useNavigate();
@@ -22,6 +23,10 @@ const Register = () => {
 
       }catch{
         localStorage.setItem("isLogin", false)
+        Swal.fire({
+          icon: "error",
+          text: "Wrong email or password!",
+        });
       }
       
 

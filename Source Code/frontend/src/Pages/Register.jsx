@@ -3,7 +3,7 @@ import React, { useState ,useContext } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { UserContext } from "../App";
-
+import Swal from 'sweetalert2'
 const Register = () => {
   let navigate = useNavigate();
   const { setLogged} = useContext(UserContext);
@@ -24,6 +24,11 @@ const Register = () => {
          navigate('/')
         }catch{
           localStorage.setItem("isLogin", false)
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Email already exists!",
+        });
         }
   }
   const handleChange = (e) => {
@@ -65,7 +70,7 @@ const Register = () => {
               required
               onChange={handleChange}
             />
-            {(registerData.password.length <= 7 && registerData .password) ?
+            {(registerData.password.length <= 7 && registerData.password) ?
                     <small className="error-message">Password can't be less than 8 characters</small> :
                     null}
             <input
