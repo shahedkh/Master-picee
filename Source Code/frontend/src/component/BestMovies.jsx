@@ -10,7 +10,7 @@ const BestMovies = () => {
 
     useEffect(() => {
       fetchData();
-    }, [])
+    }, [movies])
   
     const fetchData = async () => {
       let res = await axios.get('http://127.0.0.1:8000/api/movies')
